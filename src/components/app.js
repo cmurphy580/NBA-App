@@ -11,7 +11,7 @@ export default class App extends Component {
         <header className="title_sect">
           <img src="../images/nba logo.png" alt="logo" />
           <h1>NBA</h1>
-          <p>TEAMS, PLAYERS & STATS</p>
+          <p className="sub-title">TEAMS, PLAYERS & STATS</p>
         </header>
         <hr />
         <SearchBar />

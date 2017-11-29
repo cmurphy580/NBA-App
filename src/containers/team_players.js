@@ -3,21 +3,25 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 
-//import team_logos from '.../images/team_logos';
 import { filterTeams } from '../actions/index';
 import { searchPlayer } from '../actions/index';
 
 class TeamData extends Component {
+  componentWillMount() {
+    if (localStorage.getItem('team')) {
+      this.render();
+    }
+  }
   renderPlayer() {
-    let activeTeam = {...this.props.team},
+    //console.log(this.props);
+    let activeTeam = {...JSON.parse(localStorage.getItem('team'))},//{...this.props.team},
         playersList = [...this.props.players],
         roster = [];
-
     playersList.map((player, i) => {
       if (+(playersList[i].teamId) === activeTeam.teamId)
         roster.push(player);
     });
-    //console.log(roster);
+    //console.log(roster); Link error below
     return roster.map(player => {
       return (
         <tr key={player.personId} onClick ={() => this.props.searchPlayer(player)}>
@@ -35,11 +39,12 @@ class TeamData extends Component {
   render() {
     return (
       <section className="player-list-container">
-      <Link to="/" className="back btn btn-primary" onClick={() => this.props.filterTeams(this.props.teams)}>
-        Back
+      <Link to="/" className="back btn btn-primary"
+      onClick={() => this.props.filterTeams(this.props.teams)}>
+      Back
       </Link>
       <div className="logo_bkg">
-        <img src={`../images/team_logos/${this.props.team.logo}.png`} alt="logo"/>
+        <img src={`../images/team_logos/${JSON.parse(localStorage.getItem('team')).logo}.png`} alt="logo"/>
       </div>
       <table className="table table-hover">
         <thead>
@@ -62,6 +67,7 @@ class TeamData extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log(state);
   return {
     team: state.activeTeam,
     teams: state.teams,

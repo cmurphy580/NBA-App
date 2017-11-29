@@ -11,11 +11,11 @@ const VideoDetail = ({video, player}) => {
 
   return (
     <section className="video_container">
-    <Link to={`/teams/${player.teamId}`} className="back btn btn-primary">
+    <Link to={`/teams/${JSON.parse(localStorage.getItem('player')).teamId}`} className="back btn btn-primary">
       Back
     </Link>
     <div className="video-detail">
-      <div className="embed-responsive embed-responsive-16by9">
+      <div className="video-wrap embed-responsive embed-responsive-16by9">
         <iframe className="video embed-responsive-item" src={url}></iframe>
       </div>
     </div>
@@ -24,9 +24,3 @@ const VideoDetail = ({video, player}) => {
 }
 
 export default VideoDetail;
-/*
-<Link key={this.props.player.teamId} to={`/this.props.teams/${this.props.player.teamId}`}>
-Back
-</Link>
-<div>{video.snippet.title}</div>
-*/

@@ -258,7 +258,7 @@ export default function() {
     teamName: "Utah Jazz",
     simpleName: "Jazz",
     location: "Utah",
-    color: "#cf1043",
+    color: "#012a5e",
     logo: "uta"
   },
   {

@@ -17,9 +17,14 @@ class Modal extends Component {
       video: null
     });
   }
+  componentWillMount() {
+    if (localStorage.getItem('player')){
+      this.render();
+    }
+  }
   videoSearch() {
-    YTSearch({
-      key: API_KEY, term: `${this.props.player.firstName} ${this.props.player.lastName} highlights`}, (videos) => {
+    YTSearch({ //JSON.parse(localStorage.getItem('team'))===this.props.player
+      key: API_KEY, term: `${JSON.parse(localStorage.getItem('player')).firstName} ${JSON.parse(localStorage.getItem('player')).lastName} highlights`}, (videos) => {
       this.setState({
         videos: videos,
         video: videos[0]
@@ -29,7 +34,7 @@ class Modal extends Component {
   render() {
     return (
       <div className="player-container">
-        <VideoDetail onLoad={this.videoSearch(this.props.player)} video={this.state.video} player={this.props.player}/>
+        <VideoDetail onLoad={this.videoSearch(JSON.parse(localStorage.getItem('player')))} video={this.state.video} player={this.props.player}/>
       </div>
     )
   }

@@ -8,7 +8,7 @@ import { filterTeams } from '../actions/index';
 
 class TeamsList extends Component {
   renderListItem(event) {
-    let teamList = this.props.filteredList || this.props.team;
+    let teamList = this.props.filteredList || this.props.teams;
     return teamList.map(team => {
       return (
         <Link key={team.teamId} to={`/teams/${team.teamId}`}>
@@ -34,8 +34,9 @@ class TeamsList extends Component {
 
 function mapStateToProps(state) {
   return {
-    team: state.teams,
-    filteredList: state.filteredList
+    teams: state.teams,
+    filteredList: state.filteredList,
+    team: state.activeTeam
   }
 }
 

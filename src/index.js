@@ -17,8 +17,8 @@ ReactDOM.render(
   <BrowserRouter>
     <div>
       <Switch>
-        <Route path="/teams/:id/:id" component={Modal} />
-        <Route path="/teams/:id" component={TeamData} />
+        <Route path="/teams/:teamId/:playerId" component={Modal} />
+        <Route path="/teams/:teamId" component={TeamData} />
         <Route path="/" component={App} />
       </Switch>
     </div>
