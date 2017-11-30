@@ -67,7 +67,7 @@ tr {
   align-items: center;
   width: 100%;
 }
-table {
+.players-table {
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
