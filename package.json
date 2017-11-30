@@ -1,3 +1,5 @@
+//change the format to this (ie reformat 'scripts', remove 'devDependencies' and put in 'dependencies'), 
+//and once inside the file use the terminal to 'install npm' (should run webpack -p).
 {
   "name": "redux-simple-starter",
   "version": "1.0.0",
