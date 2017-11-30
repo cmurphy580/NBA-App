@@ -67,13 +67,6 @@ tr {
   align-items: center;
   width: 100%;
 }
-.players-table {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
 img {
   background-size: contain;
   width: 75%;
